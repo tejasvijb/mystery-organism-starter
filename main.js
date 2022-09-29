@@ -53,7 +53,28 @@ function pAequorFactory(specimenNum, dna){
       else
         return false
       
+    },
+    complementStrand() {
+      let complementStrand = []
+      for(base of this.dna){
+        switch(base){
+          case 'C':
+            complementStrand.push('G')
+            break
+          case 'G':
+            complementStrand.push('C')
+            break
+          case 'A':
+            complementStrand.push('T')
+            break
+          case 'T':
+            complementStrand.push('A')
+            break
+        }
+      }
+      return complementStrand
     }
+
 
   }
 }
@@ -61,8 +82,8 @@ const pAequor1 = pAequorFactory(1, mockUpStrand())
 const pAequor2 = pAequorFactory(2, mockUpStrand())
 const pAequor3 = pAequorFactory(3, mockUpStrand())
 
-
-console.log(pAequor1.willLikelySurvive()); 
+console.log(pAequor1.dna)
+console.log(pAequor1.complementStrand()); 
 
 
 
